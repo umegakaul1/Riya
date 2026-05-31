@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rriddhima's Diary</title>
+    <!-- Premium Fonts Setup -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Aesthetic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #faf9f6;
+            color: #2b2927;
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
+
+        /* Asymmetrical Hero Banner Setup */
+        .hero-section {
+            background-color: #c9cdd4; /* Muted lilac-grey background */
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            align-items: center;
+            padding: 60px 8%;
+            gap: 60px;
+        }
+        @media (max-width: 900px) {
+            .hero-section { grid-template-columns: 1fr; min-height: auto; padding: 40px 5%; gap: 30px; }
+            .hero-right-img { height: 500px !important; }
+        }
+        .hero-left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 5.5vw, 4.2rem);
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: #1a1918;
+        }
+        .hero-left p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #4a4744;
+            max-width: 480px;
+            margin-bottom: 35px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background-color: #eab0a2; /* Soft clay-pink button */
+            color: #1a1918;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            background-color: #e2a091;
+        }
+        
+        /* Premium Curvature Profile Container */
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .hero-right-img {
+            width: 100%;
+            max-width: 450px;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 40px 40px 140px 40px; 
+            box-shadow: -15px 15px 0px rgba(255,255,255,0.25);
+            background-color: #f3f4f6;
+        }
+
+        /* Elegant Alternating Hobby Grid Blocks */
+        .hobby-container {
+            max-width: 1200px;
+            margin: 100px auto 0 auto;
+            padding: 0 4%;
+        }
+        .hobby-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 120px;
+        }
+        .hobby-block.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: 768px) {
+            .hobby-block, .hobby-block.reverse { grid-template-columns: 1fr !important; gap: 30px; margin-bottom: 70px;}
+            .hobby-img { height: 350px !important; }
+            .order-1 { order: 1; }
+            .order-2 { order: 2; }
+        }
+        .hobby-img-wrapper {
+            border-radius: 30px;
+            overflow: hidden;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .hobby-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .hobby-img-wrapper:hover .hobby-img {
+            transform: scale(1.04);
+        }
+        .hobby-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+            color: #1a1918;
+        }
+        .hobby-text h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8c857b;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .hobby-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #5c5854;
+        }
+
+        /* Color accents behind background items */
+        #dancing .hobby-img-wrapper { background-color: #e8e2dc; }
+        #drawing .hobby-img-wrapper { background-color: #e0e4e8; }
+        #going-out .hobby-img-wrapper { background-color: #dde4e0; }
+    </style>
+</head>
+<body>
+
+    <!-- HERO HEADER -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Hey, This is Rriddhima's Diary</h1>
+            <p>Welcome to my digital scrapbook. I use this space to capture my favorite things to do, create, and explore every single day.</p>
+            <a href="#dancing" class="cta-btn">See My Hobbies</a>
+        </div>
+        <div class="hero-right">
+            <!-- PROFILE PICTURE UPGRADED TO THE NEW FILE PATH -->
+            <img class="hero-right-img" src="WhatsApp Image 2026-05-31 at 01.08.53.jpeg" alt="Rriddhima Profile Picture">
+        </div>
+    </section>
+
+    <!-- CONTENT PORTFOLIO SYSTEM -->
+    <div class="hobby-container">
+
+        <!-- HOBBY 1: DANCING -->
+        <div id="dancing" class="hobby-block">
+            <div class="hobby-img-wrapper">
+                <img class="hobby-img" src="WhatsApp Image 2026-05-31 at 01.13.53.jpeg" alt="Rriddhima Dancing">
+            </div>
+            <div class="hobby-text">
+                <h3>Movement</h3>
+                <h2>Expressive Dancing</h2>
+                <p>Dancing is how I let my energy loose! Whether I'm practicing specific rhythmic steps in class or just jumping around freely to my favorite tunes in the living room, moving to music always makes me smile.</p>
+            </div>
+        </div>
+
+        <!-- HOBBY 2: DRAWING -->
+        <div id="drawing" class="hobby-block reverse">
+            <div class="hobby-text order-2">
+                <h3>Creativity</h3>
+                <h2>Imaginative Drawing</h2>
+                <p>I love putting my wildest ideas onto paper. Using bright watercolors, pastels, and markers, I build entirely new worlds filled with colorful skies, friendly animals, and massive imaginary castles.</p>
+            </div>
+            <div class="hobby-img-wrapper order-1">
+                <img class="hobby-img" src="WhatsApp Image 2026-05-31 at 01.14.43.jpeg" alt="Rriddhima Drawing">
+            </div>
+        </div>
+
+        <!-- HOBBY 3: GOING OUT -->
+        <div id="going-out" class="hobby-block">
+            <div class="hobby-img-wrapper">
+                <img class="hobby-img" src="WhatsApp Image 2026-05-31 at 01.07.52.jpeg" alt="Rriddhima Going Out">
+            </div>
+            <div class="hobby-text">
+                <h3>Exploration</h3>
+                <h2>Going Out & Exploring</h2>
+                <p>Every weekend is a fresh adventure. From exploring new corner playgrounds and running around with friend groups to checking out festive neighborhood gatherings, being outside is where the best memories happen.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

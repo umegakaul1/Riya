@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rriddhima's Diary</title>
+    <!-- Premium Fonts Setup -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Aesthetic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #faf9f6;
+            color: #2b2927;
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
+
+        /* Asymmetrical Hero Banner Setup */
+        .hero-section {
+            background-color: #c9cdd4; /* Muted lilac-grey background */
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            align-items: center;
+            padding: 60px 8%;
+            gap: 60px;
+        }
+        @media (max-width: 900px) {
+            .hero-section { grid-template-columns: 1fr; min-height: auto; padding: 40px 5%; gap: 30px; }
+            .hero-right-img { height: 500px !important; }
+        }
+        .hero-left h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 5.5vw, 4.2rem);
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: #1a1918;
+        }
+        .hero-left p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #4a4744;
+            max-width: 480px;
+            margin-bottom: 35px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background-color: #eab0a2; /* Soft clay-pink button */
+            color: #1a1918;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            background-color: #e2a091;
+        }
+        
+        /* Premium Curvature Profile Container */
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .hero-right-img {
+            width: 100%;
+            max-width: 450px;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 40px 40px 140px 40px; 
+            box-shadow: -15px 15px 0px rgba(255,255,255,0.25);
+            background-color: #f3f4f6;
+        }
+
+        /* Elegant Alternating Hobby Grid Blocks */
+        .hobby-container {
+            max-width: 1200px;
+            margin: 100px auto 0 auto;
+            padding: 0 4%;
+        }
+        .hobby-block {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 120px;
+        }
+        .hobby-block.reverse {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        @media (max-width: 900px) {
+            .hobby-block, .hobby-block.reverse { grid-template-columns: 1fr !important; gap: 40px; margin-bottom: 70px;}
+            .hobby-img { height: 400px !important; }
+            .order-1 { order: 1; }
+            .order-2 { order: 2; }
+        }
+
+        /* Premium Asymmetrical Collage Layout Grid */
+        .collage-wrapper {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            height: 520px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 35px;
+            gap: 15px;
+        }
+        .dancing-bg { background-color: #e8e2dc; }
+        .outing-bg { background-color: #dde4e0; }
+
+        .collage-item {
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 4px solid #ffffff;
+            transition: transform 0.4s ease, z-index 0s;
+        }
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .collage-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+        }
+
+        /* Grid block assignments */
+        .img-main { grid-column: 1 / 4; grid-row: 1 / 7; } 
+        .img-side1 { grid-column: 4 / 7; grid-row: 1 / 4; } 
+        .img-side2 { grid-column: 4 / 7; grid-row: 4 / 7; } 
+
+        /* Standard Single Image Settings */
+        .hobby-img-wrapper {
+            border-radius: 30px;
+            overflow: hidden;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            height: 500px;
+        }
+        .hobby-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .hobby-img-wrapper:hover .hobby-img {
+            transform: scale(1.04);
+        }
+
+        .hobby-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+            color: #1a1918;
+        }
+        .hobby-text h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8c857b;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .hobby-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #5c5854;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO HEADER -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Hey, This is Rriddhima's Diary</h1>
+            <p>Welcome to my digital scrapbook. I use this space to capture my favorite things to do, create, and explore every single day.</p>
+            <a href="#dancing" class="cta-btn">See My Hobbies</a>
+        </div>
+        <div class="hero-right">
+            <img class="hero-right-img" src="WhatsApp Image 2026-05-31 at 01.08.53.jpeg" alt="Rriddhima Profile Picture">
+        </div>
+    </section>
+
+    <!-- CONTENT PORTFOLIO SYSTEM -->
+    <div class="hobby-container">
+
+        <!-- HOBBY 1: DANCING -->
+        <div id="dancing" class="hobby-block">
+            <div class="collage-wrapper dancing-bg">
+                <div class="collage-item img-main">
+                    <img src="WhatsApp Image 2026-05-31 at 01.13.53.jpeg" alt="Rriddhima Dancing Pose 1">
+                </div>
+                <div class="collage-item img-side1">
+                    <img src="WhatsApp Image 2026-05-06 at 21.47.05.jpeg" alt="Rriddhima Dancing Pose 2">
+                </div>
+                <div class="collage-item img-side2">
+                    <img src="WhatsApp Image 2026-05-06 at 21.47.04.jpeg" alt="Rriddhima Dancing Pose 3">
+                </div>
+            </div>
+            <div class="hobby-text">
+                <h3>Movement</h3>
+                <h2>Expressive Dancing</h2>
+                <p>Kathak is one of the most beautiful classical dance forms from Northern India. It gets its name from the word "Katha," which means "story," and "Kathakar," which means "storyteller." Through graceful spins, rhythmic footwork, and expressive facial gestures, Kathak dancers tell magical stories of gods, kings, and nature.</p>
+            </div>
+        </div>
+
+        <!-- HOBBY 2: DRAWING -->
+        <div id="drawing" class="hobby-block reverse">
+            <div class="hobby-text order-2">
+                <h3>Creativity</h3>
+                <h2>Imaginative Drawing</h2>
+                <p>In my free time, I absolutely love drawing and colouring because it lets me bring my wildest imagination to life! Whenever I have a blank piece of paper, I grab my favorite colors and start creating cool scenes, characters, and bright patterns. It is so much fun to watch a simple sketch transform into a colourful masterpiece right in front of my eyes. Making art always makes me feel super happy, relaxed, and proud of what I can create.</p>
+            </div>
+            <div class="hobby-img-wrapper order-1">
+                <img class="hobby-img" src="WhatsApp Image 2026-05-31 at 01.14.43.jpeg" alt="Rriddhima Drawing">
+            </div>
+        </div>
+
+        <!-- HOBBY 3: GOING OUT -->
+        <div id="going-out" class="hobby-block">
+            <div class="collage-wrapper outing-bg">
+                <div class="collage-item img-main">
+                    <img src="WhatsApp Image 2026-05-31 at 01.31.22.jpeg" alt="Rriddhima Outing Photo 1">
+                </div>
+                <div class="collage-item img-side1">
+                    <img src="WhatsApp Image 2026-05-31 at 01.30.53.jpeg" alt="Rriddhima Outing Photo 2">
+                </div>
+                <div class="collage-item img-side2">
+                    <img src="WhatsApp Image 2026-05-31 at 01.30.20.jpeg" alt="Rriddhima Outing Photo 3">
+                </div>
+            </div>
+            <div class="hobby-text">
+                <h3>Exploration</h3>
+                <h2>Going Out & Exploring</h2>
+                <!-- UPDATED DETAILED ENTRIES -->
+                <p><strong>Mussoorie:</strong> The journey begins in the lush hills of the "Queen of Hills," offering refreshing mountain air, misty landscapes, and panoramic views of the Himalayas.</p>
